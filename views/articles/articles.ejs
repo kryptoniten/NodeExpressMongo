@@ -1,0 +1,47 @@
+ 
+    
+   
+
+   	<section class="ftco-section bg-light">
+        <div class="container">
+          <div class="row d-flex">
+             
+           
+
+ 
+
+            <% articles.forEach(article => { %>
+ 
+  
+            <div class="col-md-4 d-flex ftco-animate">
+                <div class="blog-entry justify-content-end">
+                <a href="articles/<%= article.title %>" class="block-20" style="background-image: url('<%-article.post_image%> ');">
+                </a>
+                <div class="text p-4 float-right d-block">
+                    <div class="topper d-flex align-items-center">
+                         
+                     </div>
+                    <h3 class="heading mb-3"><a href="#"><%= article.title %> </a></h3>
+                  <p><%= article.description %></p>
+                  <p><a href="#" class="btn-custom"><span class="ion-ios-arrow-round-forward mr-3"></span>Devamını Oku</a></p>
+  
+  
+                </div>
+              </div>
+            </div>
+  
+  
+            
+            <% }) %>
+          
+            
+            
+            
+            
+  
+  
+           
+      </section>
+  
+      
+    

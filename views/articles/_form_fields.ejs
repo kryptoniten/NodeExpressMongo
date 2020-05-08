@@ -1,0 +1,28 @@
+<div class="form-group mt-5">
+  <label for="title">Yazı Başlığı</label>
+  <input required value="<%= article.title %>" type="text" name="title" id="title" class="form-control">
+</div>
+
+
+
+<div class="form-group">
+  <label for="description">Yazı açıklaması</label>
+  <textarea name="description" id="description" class="form-control"><%= article.description %></textarea>
+</div>
+
+
+
+
+<div class="form-group">
+  <label for="markdown">Metin</label>
+  <textarea required name="markdown" id="markdown" class="form-control"><%= article.markdown %></textarea>
+</div>
+
+<div class="form-group">
+  <label for="postimage">Resim yükleyin</label>
+  <input required type="file" name="post_image" class="form-control" name="post_image">
+
+</div>
+
+<a href="/" class="btn btn-secondary">İptal</a>
+<button type="submit" class="btn btn-primary">Kaydet</button>  

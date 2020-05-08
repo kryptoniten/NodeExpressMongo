@@ -1,0 +1,82 @@
+ <body>
+    <div id="login">
+        <h1 id="typewriter" class="text-center mt-5">
+            Aramıza Katıl
+          </h1>
+        <div class="container mt-5">
+            <div id="login-row" class="row justify-content-center align-items-center">
+                <div id="login-column" class="col-md-6">
+                    <div id="login-box" class="col-md-12">
+                        <form id="login-form" class="form" action="/users/register" method="POST">
+                             <div class="form-group">
+                                <label for="username" class="text-dark">Kullanıcı Adı:</label><br>
+                                <input type="text" name="username" id="username" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="username" class="text-dark">Email Adresi:</label><br>
+                                <input type="text" name="email" id="username" class="form-control">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="password" class="text-dark">Şifre:</label><br>
+                                <input type="password" name="password" id="password" class="form-control">
+                            </div>
+
+
+                            <div class="form-group">
+                                 <input type="submit"  class="btn btn-dark btn-lg" value="Kayıt ol">
+                            </div>
+                         </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+
+<script>
+    document.addEventListener('DOMContentLoaded',function(event){
+  // array with texts to type in typewriter
+  var dataText = [ "Aramıza Katıl","Bilgini Paylaş","Zaman geçir"];
+  
+  // type one text in the typwriter
+  // keeps calling itself until the text is finished
+  function typeWriter(text, i, fnCallback) {
+    // chekc if text isn't finished yet
+    if (i < (text.length)) {
+      // add next character to h1
+     document.querySelector("h1").innerHTML = text.substring(0, i+1) +'<span aria-hidden="true"></span>';
+
+      // wait for a while and call this function again for next character
+      setTimeout(function() {
+        typeWriter(text, i + 1, fnCallback)
+      }, 100);
+    }
+    // text finished, call callback if there is a callback function
+    else if (typeof fnCallback == 'function') {
+      // call callback after timeout
+      setTimeout(fnCallback, 700);
+    }
+  }
+  // start a typewriter animation for a text in the dataText array
+   function StartTextAnimation(i) {
+     if (typeof dataText[i] == 'undefined'){
+        setTimeout(function() {
+          StartTextAnimation(0);
+        }, 20000);
+     }
+     // check if dataText[i] exists
+    if (i < dataText[i].length) {
+      // text exists! start typewriter animation
+     typeWriter(dataText[i], 0, function(){
+       // after callback (and whole text has been animated), start next text
+       StartTextAnimation(i + 1);
+     });
+    }
+  }
+  // start the text animation
+  StartTextAnimation(0);
+});
+</script>
+
