@@ -64,7 +64,7 @@ app.use((req,res,next)=>{
 
 
 app.get('/', async (req, res) => {
-  const articles = await Article.find().sort({ createdAt: 'desc' })
+  const articles = await Article.find().populate({path:'author',model:User}).sort({ createdAt: 'desc' })
   res.render('articles/index', { articles: articles })
   
 });

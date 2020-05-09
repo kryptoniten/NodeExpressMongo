@@ -4,6 +4,7 @@ const slugify = require('slugify')
 const createDomPurify = require('dompurify')
 const {JSDOM} = require('jsdom')
 const dompurify = createDomPurify(new JSDOM().window)
+const Schema = mongoose.Schema;
 
 const articleSchema = new mongoose.Schema({
 
@@ -35,6 +36,11 @@ const articleSchema = new mongoose.Schema({
         type:String,
         required:true
     
+    },
+    author:{
+        type:Schema.Types.ObjectId,
+        ref:'users'
+
     }
     
 

@@ -1,5 +1,7 @@
 const express = require('express')
 const Article = require('./../models/article')
+const User = require('./../models/users')
+
 const router = express.Router()
 const path = require('path');
 
@@ -76,6 +78,7 @@ function saveArticleAndRedirect() {
     article.description = req.body.description
     article.markdown = req.body.markdown
     article.post_image = `/images/postimages/${postImage.name}`;
+    article.author = req.session.userId;
   
     try {
       article = await article.save()
